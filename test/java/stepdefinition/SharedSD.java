@@ -16,8 +16,7 @@ public class SharedSD {
 	public static void before() {
 
 		ConfigReader configReader = new ConfigReader();
-		System.setProperty("webdriver.chrome.driver",
-				configReader.getChromeDriverPath());
+		System.setProperty("webdriver.chrome.driver", configReader.getChromeDriverPath());
 		driver = new ChromeDriver();
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -35,4 +34,5 @@ public class SharedSD {
 	public static WebDriver getDriver() {
 		return driver;
 	}
+
 }

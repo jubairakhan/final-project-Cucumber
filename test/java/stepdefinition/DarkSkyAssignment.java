@@ -10,7 +10,7 @@ import org.testng.Assert;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
-public class DarkSkyAssignment_03 extends BasePage {
+public class DarkSkyAssignment extends BasePage {
     private String daily;
     private String CurrentTemperature;
     private int minimum;
@@ -19,11 +19,17 @@ public class DarkSkyAssignment_03 extends BasePage {
     private DarkskyRegister darkskyregister = new DarkskyRegister();
     private DarkSkyHomePage dp = new DarkSkyHomePage();
 
-
     @Given("^I am on Darksky Home Page$")
     public void iAmOnDarkskyHomePage() {
 
         Assert.assertEquals(SharedSD.getDriver().getTitle(), "Dark Sky - Broadway, New York, NY", "Invalid Home Page");
+    }
+
+    @Then("I verify current temp is not greater or less then temps from daily timeline")
+    public void verifyCurrentTemp(){
+        dp.getCurrentTemp();
+        dp.timelineTemps();
+        dp.validatingCurrentTempAgainstTimeline();
     }
 
     @When("^I expand todays timelineFeature: Login feature$")
@@ -50,7 +56,8 @@ public class DarkSkyAssignment_03 extends BasePage {
 
     @Then("^I verify lowest and highest temp is displayed correctly$")
     public void iVerifyLowestAndHighestTempIsDisplayedCorrectly() {
-       System.out.println(minimum); 
+      // System.out.println(minimum); 
+        System.out.println(minimum);
         System.out.println(maximum);
 
     }
