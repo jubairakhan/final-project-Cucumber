@@ -32,6 +32,14 @@ public class DarkSkyAssignment extends BasePage {
         dp.validatingCurrentTempAgainstTimeline();
     }
 
+
+    @Then("I verify timeline is displayed with two hours incremented")
+    public void verifyTimelineIncrement(){
+        dp.timelineHours();
+        dp.intConversion();
+        dp.twoHourIncrementCheck();
+    }
+
     @When("^I expand todays timelineFeature: Login feature$")
     public void iExpandTodaysTimelineFeatureLoginFeature() throws ParseException {
         CurrentTemperature = dp.getElementList().get(0).getText();
