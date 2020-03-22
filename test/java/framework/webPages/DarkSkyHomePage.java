@@ -18,7 +18,6 @@ public class DarkSkyHomePage extends BasePage {
     int minTemp;
     int maxTemp;
     int currentTime;
-    int tempry;
 
     private By timeline = By.xpath("//div[@class='temps']//span//span");
     private By currentTemp = By.xpath("//*[@class='currently']//*[@class=\"desc swap\"]//*[@class='summary swap']");
@@ -77,23 +76,18 @@ public class DarkSkyHomePage extends BasePage {
         System.out.println("Current time in AM/PM: " + dateString);
         currentTime = Integer.parseInt(dateString);
 
-
         for (int x : newList) {
-            if (currentTime != 12 && x == (currentTime+2)) {
+            if (currentTime != 12 && x == (currentTime + 2)) {
                 currentTime = x;
-                System.out.println("Check has been passed for timeline at: " + x + " hours");
+                System.out.println("Check Passed" + x);
             } else if (currentTime == 12) {
                 currentTime = 0;
-                System.out.println("Check has been passed for timeline at: " + x + " hours");
             } else if (currentTime == 11) {
                 currentTime = 1;
-                System.out.println("Check has been passed for timeline at: " + x + " hours");
             } else {
                 Assert.fail("Wrong cal");
             }
         }
-
     }
-
 
 }

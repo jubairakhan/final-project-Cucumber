@@ -71,4 +71,8 @@ public class BasePage {
 		//select element by index
 		selectMonth.selectByIndex(index);
 	}
+
+	public void scrollToBottom(){
+		((JavascriptExecutor) SharedSD.getDriver()).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
 }
